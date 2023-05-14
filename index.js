@@ -4,7 +4,7 @@ const fs = require('fs')
 
 app.get("/messages", (req, res) => {
 
-    fs.readFileSync("messages.txt", (err, data) => {
+    fs.readFile("messages.txt", (err, data) => {
 
         res.send(data)
         console.log(data)
@@ -24,7 +24,7 @@ app.post("/messages/:user/:message", (req, res) => {
 app.get("/users/:user/:pass", (req, res) => {
 
     let result = false;
-    fs.readFileSync("users.txt", (err, data) => {
+    fs.readFile("users.txt", (err, data) => {
 
         let users = data.split(",")
         users.forEach(element => {

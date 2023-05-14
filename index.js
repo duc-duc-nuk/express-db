@@ -2,6 +2,23 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 
+app.get("/messages", (req, res) => {
+
+    fs.readFileSync("messages.txt", (err, data) => {
+
+        res.send(data)
+
+    })
+    res.end()
+
+})
+
+app.post("/messages/:user/:message", (req, res) => {
+
+    fs.appendFile("messages.txt", req.params.user + "?:" + req.params.message + "!?:")
+
+})
+
 app.get("/users/:user/:pass", (req, res) => {
 
     let result = false;
@@ -30,7 +47,7 @@ app.get("/users/:user/:pass", (req, res) => {
 
 app.post("/users/:user/:pass", (req, res) => {
 
-    fs.appendFileSync(req.params.user + "?:" + req.params.pass + ",")
+    fs.appendFileSync("messages.txt", req.params.user + "?:" + req.params.pass + ",")
 
 })
 

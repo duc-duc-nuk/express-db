@@ -16,6 +16,7 @@ app.get("/messages", (req, res) => {
 app.post("/messages/:user/:message", (req, res) => {
 
     fs.appendFileSync("messages.txt", req.params.user + "?:" + req.params.message + "!?:")
+    console.log("append")
 
 })
 

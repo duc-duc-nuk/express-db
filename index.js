@@ -5,12 +5,8 @@ const fs = require('fs')
 app.get("/messages", (req, res) => {
 
     console.log("read")
-    fs.readFileSync("messages.txt", (err, data) => {
-
-        res.send(data)
-        console.log(data)
-
-    })
+    let data = fs.readFileSync("messages.txt")
+    res.send(data)
     res.end()
 
 })

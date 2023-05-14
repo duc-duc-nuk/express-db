@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 
+app.set('view engine', 'html');
+
 app.get("/messages", (req, res) => {
 
     console.log("read")

@@ -10,7 +10,6 @@ app.get("/messages", (req, res) => {
     let data = fs.readFileSync("messages.txt", { encoding: 'utf8', flag: 'r' })
     console.log(data)
     res.send(data)
-    res.end()
 
 })
 
@@ -43,7 +42,6 @@ app.get("/users/:user/:pass", (req, res) => {
     })
 
     if (!result) {res.send("false")}
-    res.send()
 
 })
 

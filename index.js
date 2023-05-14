@@ -9,6 +9,7 @@ app.get("/messages", (req, res) => {
     console.log("read")
     let data = fs.readFileSync("messages.txt", { encoding: 'utf8', flag: 'r' })
     console.log(data)
+    res.set('Content-Type', 'text/html')
     res.send(data)
     res.end()
 

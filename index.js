@@ -7,7 +7,11 @@ app.set('view engine', 'html');
 app.get("/messages", (req, res) => {
 
     console.log("read")
-    let data = fs.readFileSync("messages.txt", { encoding: 'utf8', flag: 'r' })
+    let data = fs.readFileSync("messages.txt", { encoding: 'utf8', flag: 'r' }, (err, info) => {
+     
+        res.send(info)
+        
+    })
     console.log(data)
     res.send(data)
 

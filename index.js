@@ -6,6 +6,7 @@ app.get("/messages", (req, res) => {
 
     console.log("read")
     let data = fs.readFileSync("messages.txt")
+    console.log(data)
     res.send(data)
     res.end()
 
